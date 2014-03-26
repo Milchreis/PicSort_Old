@@ -10,6 +10,8 @@ public class Main {
 	 * 	- MainWindow	
 	 * 	- Delete image by DEL
 	 * 	- Scaling image totally to screen (now: greater than screen - image chropped)
+	 * 
+	 * 
 	 */
 	
 	public static void main( String[] args ) {
