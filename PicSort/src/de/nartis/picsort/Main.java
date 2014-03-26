@@ -16,6 +16,7 @@ public class Main {
 		
 		try {
 			Lang.setLanguage( "german" );			
+			
 		} catch( Exception e ) {
 			e.printStackTrace();
 		}
