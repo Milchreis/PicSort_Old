@@ -1,7 +1,9 @@
 package de.nartis.picsort.gui;
 
+import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -49,6 +51,13 @@ public class ImagePanel extends JPanel implements Observer {
 					this.getHeight()/2 - img.getHeight()/2, null );
 		
 			if( model.isInfoVisible() ) {
+				
+				g2d.setComposite( AlphaComposite.getInstance( AlphaComposite.SRC_OVER, 0.3F ) );
+				g.setColor( Color.BLACK );
+				g.fillRoundRect( 5, 20, 240, 220, 5, 5 );
+				
+				g2d.setComposite( AlphaComposite.getInstance( AlphaComposite.SRC_OVER, 1.0F ) );
+				
 				int y = 40;
 				drawString( "Info:", 10, y, g2d );
 				
@@ -84,7 +93,18 @@ public class ImagePanel extends JPanel implements Observer {
 			}
 			
 			if( model.getEventType() != null ) {
-				drawString( model.getEventType(), this.getWidth()/2 , 40, g2d );
+				
+				String event = model.getEventType();
+				
+				FontMetrics metrics = getFontMetrics( font );
+				int eventWidth = metrics.stringWidth( event );
+
+				g2d.setComposite( AlphaComposite.getInstance( AlphaComposite.SRC_OVER, 0.3F ) );
+				g.setColor( Color.BLACK );
+				g.fillRoundRect( (this.getWidth()/2) - (eventWidth/2) - 10, 25, eventWidth + 20, 25, 5, 5 );
+				
+				g2d.setComposite( AlphaComposite.getInstance( AlphaComposite.SRC_OVER, 1.0F ) );
+				drawString( event, (this.getWidth()/2) - (eventWidth/2) , 40, g2d );
 			}
 		}
 
