@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import de.nartis.lang.Lang;
 import de.nartis.picsort.AppController;
 import de.nartis.picsort.AppModel;
+import de.nartis.utils.Conf;
 import de.nartis.utils.NativeLook;
 
 public class Window extends JFrame {
@@ -27,7 +28,7 @@ public class Window extends JFrame {
 		
 		NativeLook.setNativeUI();
 		
-		super.setTitle( "PicSort" );
+		super.setTitle( "PicSort - " + Conf.get( "app.version" ) );
 		super.setSize( 280, 300 );
 
 		initComponents();
