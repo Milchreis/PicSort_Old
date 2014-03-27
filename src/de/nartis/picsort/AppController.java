@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 import java.io.File;
 
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 
 import de.nartis.picsort.gui.FullscreenWindow;
 import de.nartis.picsort.gui.Window;
@@ -49,6 +50,12 @@ public class AppController implements ActionListener, KeyListener {
 		
 		if(e.getKeyCode() == KeyEvent.VK_CONTROL) {
 			model.openEventTypeInput();
+			
+			String platform = System.getProperty("os.name").toLowerCase();
+
+			if(platform.startsWith("windows")) {
+				fsWindow.setExtendedState(JFrame.NORMAL);
+			}
 		}
 		
 		if(e.getKeyCode() == KeyEvent.VK_SPACE) {

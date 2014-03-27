@@ -15,7 +15,8 @@ public class Main {
 	public static void main( String[] args ) {
 		
 		try {
-			Lang.setLanguage( "german" );			
+			Lang.setLanguage( "german" );
+			
 		} catch( Exception e ) {
 			e.printStackTrace();
 		}
