@@ -26,6 +26,21 @@ public class AppController implements ActionListener, KeyListener {
 		mainWindow = new Window( this, model );
 		fsWindow = new FullscreenWindow( this, model );
 	}
+	
+	public AppController(String sourcePath, String destPath) {
+		this();
+
+		try {
+			model.setSourcePath( new File(sourcePath) );
+			model.setDestPath( new File(destPath) );
+			
+			model.prepare();
+			fsWindow.showNow();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	@Override
 	public void keyReleased( KeyEvent e ) {
