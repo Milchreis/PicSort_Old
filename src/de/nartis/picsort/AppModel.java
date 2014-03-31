@@ -80,7 +80,11 @@ public class AppModel extends Observable {
 
 	public void prevImg() {
 		
-		currentImg = (--currentImg % imgList.size());	
+		if( --currentImg < 0)
+			currentImg = imgList.size() - 1;
+		else 
+			currentImg = ((currentImg) % imgList.size());	
+	
 		imgManager.shiftRight( imgList.get( currentImg ) );
 	}
 
