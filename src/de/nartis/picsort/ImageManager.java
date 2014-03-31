@@ -32,10 +32,7 @@ public class ImageManager {
 	}
 	
 	public ImageModel getCurrent() {
-		if(list.size() >= 3)
-			return list.get( 1 );
-		else
-			return list.getFirst();
+		return list.getFirst();
 	}
 	
 	public void shiftLeft(final String nextImage) {

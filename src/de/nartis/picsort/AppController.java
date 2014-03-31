@@ -144,7 +144,6 @@ public class AppController implements ActionListener, KeyListener {
 			}
 			
 			fsWindow.showNow();
-//			fsWindow.hide();
 		}
 		
 	}

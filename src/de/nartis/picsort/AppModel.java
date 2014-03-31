@@ -63,6 +63,8 @@ public class AppModel extends Observable {
 		}
 		
 		imgManager.init(initList);
+		
+		notifyObservers( null );
 	}
 
 	public void nextImg() {
@@ -119,8 +121,6 @@ public class AppModel extends Observable {
 
 			throw new IllegalArgumentException( "source path is no directory" );
 		}
-
-//		this.notifyObservers( null );
 	}
 
 	public File getSourcePath() {
