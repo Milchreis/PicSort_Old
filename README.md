@@ -21,7 +21,7 @@ The latetest version of the picsort program is hosted on github. Feel free to [d
 Until now I create the executable jar-file with the build-in eclipse export system.
 
 ## Future ##
-The following list includes the changes in the current code base to the last version. In the next release will contains this changes.
+The following list includes the changes in the current code base to the latest version. In the next release will contains this changes.
 
  - Bugfix: empty directories (no pictures inside) produce errors  
  - Bugfix: fullscreen starts black and backrotation produces exception (invalid mod operation)
