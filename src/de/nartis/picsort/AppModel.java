@@ -39,27 +39,22 @@ public class AppModel extends Observable {
 
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		imgManager = new ImageManager( dim.width, dim.height, this );
-		
-//		sourcePath = new File( "/home/nick/Bilder" );
-//		sourcePath = new File( "/home/nick/Arbeitsfläche/Italien" ); 
-//		sourcePath = new File( "/media/Data/Bilder/2013/Italien" );
-//		loadImageList();
-		
-//		destPath = new File( "/home/nick/Arbeitsfläche" ); 
-		
-		// TODO check for image empty directories
 	}
 	
-	public void prepare() {
+	public void prepare() throws Exception {
 		
 		loadImageList();
 		
-		if(imgList.size() >= 3) {
-			range = 2;
-		} else {
-			range = imgList.size();
-		}
+		if(imgList.size() == 0 ) {
+			throw new Exception( "no pictures in directory found" );
 		
+		} else if(imgList.size() >= 3) {
+			range = 2;
+			
+		} else {	
+			range = imgList.size() - 1;
+		}
+			
 		String[] initList = new String[range+1];
 		initList[0] = imgList.get(0);
 		

@@ -8,7 +8,9 @@ import java.io.File;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
+import de.nartis.lang.Lang;
 import de.nartis.picsort.gui.FullscreenWindow;
 import de.nartis.picsort.gui.Window;
 
@@ -31,11 +33,26 @@ public class AppController implements ActionListener, KeyListener {
 		this();
 
 		try {
-			model.setSourcePath( new File(sourcePath) );
-			model.setDestPath( new File(destPath) );
+			if(sourcePath != null) {
+				model.setSourcePath( new File(sourcePath) );
+			}
+
+			if(destPath != null) {
+				model.setDestPath( new File(destPath) );
+			}
 			
-			model.prepare();
-			fsWindow.showNow();
+			if(sourcePath != null && destPath != null) {
+				
+				try {
+					model.prepare();
+					fsWindow.showNow();
+				} catch (Exception e) {
+					
+					JOptionPane.showMessageDialog(null, 
+							Lang.get( "error.dirNoImages" ), 
+							Lang.get( "error.headline" ), JOptionPane.ERROR_MESSAGE);
+				}
+			}
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -91,9 +108,9 @@ public class AppController implements ActionListener, KeyListener {
 	}
 
 	@Override
-	public void actionPerformed( ActionEvent e ) {
+	public void actionPerformed( ActionEvent event ) {
 		
-		if(e.getActionCommand().equals("button.source")) {
+		if(event.getActionCommand().equals("button.source")) {
 			
 			JFileChooser fc = new JFileChooser();
 			fc.setFileSelectionMode( JFileChooser.DIRECTORIES_ONLY );
@@ -102,12 +119,20 @@ public class AppController implements ActionListener, KeyListener {
 			if( returnVal == JFileChooser.APPROVE_OPTION ) {
 				File file = fc.getSelectedFile();
 				model.setSourcePath( file );
-				model.prepare();
+				
+				try {
+					model.prepare();
+
+				} catch (Exception e) {
+					
+					JOptionPane.showMessageDialog(null, 
+							Lang.get( "error.dirNoImages" ), 
+							Lang.get( "error.headline" ), JOptionPane.ERROR_MESSAGE);
+				}
 			}
-			
 		}
 		
-		if(e.getActionCommand().equals("button.dest")) {
+		if(event.getActionCommand().equals("button.dest")) {
 			
 			JFileChooser fc = new JFileChooser();
 			fc.setFileSelectionMode( JFileChooser.DIRECTORIES_ONLY );
