@@ -20,7 +20,7 @@ The latetest version of the picsort program is hosted on github. Feel free to [d
 
 Until now I create the executable jar-file with the build-in eclipse export system.
 
-## Changelog ## 
+## Changelog ##
 
 #### Version 0.2 ####
 
