@@ -41,6 +41,14 @@ public class AppModel extends Observable {
 		imgManager = new ImageManager( dim.width, dim.height, this );
 	}
 	
+	public int getListSize() {
+		return imgList.size();
+	}
+	
+	public int getCurrentListIndex() {
+		return currentImg;
+	}
+	
 	public void prepare() throws Exception {
 		
 		loadImageList();

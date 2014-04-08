@@ -92,11 +92,11 @@ public class ImagePanel extends JPanel implements Observer {
 				drawString( imgModel.getFilename(), 10, y, g2d );
 			}
 			
+			FontMetrics metrics = getFontMetrics( font );
+
 			if( model.getEventType() != null ) {
 				
 				String event = model.getEventType();
-				
-				FontMetrics metrics = getFontMetrics( font );
 				int eventWidth = metrics.stringWidth( event );
 
 				g2d.setComposite( AlphaComposite.getInstance( AlphaComposite.SRC_OVER, 0.3F ) );
@@ -106,6 +106,17 @@ public class ImagePanel extends JPanel implements Observer {
 				g2d.setComposite( AlphaComposite.getInstance( AlphaComposite.SRC_OVER, 1.0F ) );
 				drawString( event, (this.getWidth()/2) - (eventWidth/2) , 40, g2d );
 			}
+			
+			// draw the current and the max images of this directory
+			String num = (model.getCurrentListIndex() + 1) + "/" + (model.getListSize()+1);
+			int eventWidth = metrics.stringWidth( num );
+			
+			g2d.setComposite( AlphaComposite.getInstance( AlphaComposite.SRC_OVER, 0.3F ) );
+			g.setColor( Color.BLACK );
+			g.fillRoundRect( this.getWidth() - 40 - eventWidth, 15, eventWidth + 20, 25, 5, 5 );
+			
+			g2d.setComposite( AlphaComposite.getInstance( AlphaComposite.SRC_OVER, 1.0F ) );
+			drawString( num, this.getWidth() - 30 - eventWidth , 30, g2d );
 		}
 
 	}
