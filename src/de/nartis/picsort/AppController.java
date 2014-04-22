@@ -25,6 +25,10 @@ public class AppController implements ActionListener, KeyListener {
 
 		model = new AppModel();
 		
+		Lang.addLanguage( "en", "english" );
+		Lang.addLanguage( "de", "german" );
+		Lang.setLanguageByOs();
+		
 		mainWindow = new Window( this, model );
 		fsWindow = new FullscreenWindow( this, model );
 	}

@@ -1,6 +1,8 @@
 package de.nartis.picsort.gui;
 
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -46,8 +48,17 @@ public class Window extends JFrame {
 		dest.setActionCommand( "button.dest" );
 		dest.addActionListener( controller );
 		
+		JLabel logo = new JLabel(new ImageIcon( ClassLoader.getSystemResource( "Logo.png" ) ));
+		logo.addMouseListener( new MouseAdapter() {
+			@Override
+			public void mouseClicked( MouseEvent e ) {
+
+				Lang.openChooser( Window.this, new String[]{"english", "german"} );
+			}
+		} );
+		
 		super.setLayout( new GridLayout( 3, 1 ) );
-		super.add( new JLabel(new ImageIcon( ClassLoader.getSystemResource( "Logo.png" ) )) );
+		super.add( logo );
 		super.add( source );
 		super.add( dest );
 		
