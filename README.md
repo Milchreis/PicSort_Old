@@ -23,7 +23,7 @@ Until now I create the executable jar-file with the build-in eclipse export syst
 ## Future ##
 The following list includes the changes in the current code base to the last version. In the next release will contains this changes.
 
- - up to date
+ - automatic language detection and changing by os defaults.
 
 ## Changelog ##
 
