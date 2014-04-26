@@ -20,8 +20,8 @@ The latetest version of the picsort program is hosted on github. Feel free to [d
 
 Until now I create the executable jar-file with the build-in eclipse export system.
 
-## Future ##
-The following list includes the changes in the current code base to the last version. In the next release will contains this changes.
+## Future builds ##
+The following list includes the changes in the current code base to the lastest version. The next release will contains the following changes.
 
  - automatic language detection and changing by os defaults.
 
