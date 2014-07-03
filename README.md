@@ -16,7 +16,7 @@ Press the F1 key in fullscreen to show the full shortcut information's. The foll
 
 ## Download / Build ##
 
-The latetest version of the picsort program is hosted on github. Feel free to [download](https://github.com/MilchReis/PicSort/raw/master/bin/picsort_0-3.jar "download-address") it. On you windows start it normally with a double click. On linux set the execute-flag, f. e. `chmod 755 picsort.jar` and start with `java -jar picsort.jar`.
+The latetest version of the picsort program is hosted on github. Feel free to [download](https://github.com/MilchReis/PicSort/raw/master/bin/picsort_0-3.jar "download-address") it. On windows the program starts normally with a double click on the file. On linux set the execute-flag, f. e. `chmod 755 picsort.jar` and start with `java -jar picsort.jar` in the terminal.
 
 Until now I create the executable jar-file with the build-in eclipse export system.
 
